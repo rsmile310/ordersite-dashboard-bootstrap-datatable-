@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <title>Dashboard</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@2.0.0/css/boxicons.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    
+    </head>
+    <body>
+        <section class="defautl-container">
+            <div class="mask"></div>
+            <aside id="aside">
+                <div class="mt-30 mx-auto">
+                    <div class="ml-20">
+                        <img src="assets/images/logo.svg" width="120px" height="auto" alt="logo">
+                    </div>
+                    <div class="mt-30">
+                        <ul class="tab-list">
+                            <li class="active">
+                                <a href="dashboard" class="tab-link">
+                                    <img src="assets/images/dash.svg" width="16px" height="16px" alt="">
+                                    <span class="pl-2">Dashboard</span>
+                                </a>
+                            </li>
+                            <li class="">
+                                <a href="dashboard" class="tab-link">
+                                    <img src="assets/images/user.svg" width="16px" height="16px" alt="">
+                                    <span class="pl-2">Contacts</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </aside>
+            <section class="main-container px-3 py-5 px-lg-5">
+                <header class="mb-4 mb-md-0">
+                    <nav class="navbar navbar-expand mt-0">
+                        <div>
+                            <button id="asideTogBtn" type="button">
+                                <span class="iconify" data-icon="cil:hamburger-menu"></span>
+                            </button>
+                        </div>
+                        <div class="welcome-msg" href="javascript:void(0)">
+                            <span class="text-body">Hi, Benn Paulson&nbsp;</span>
+                            <span class="color-gray">Welcome back!</span>
+                        </div>
+                    
+                        <div class="navbar-collapse d-flex" id="navb">
+                        <ul class="navbar-nav ml-auto d-flex align-items-center">
+                            <li class="nav-item mr-4 d-flex">
+                                <div class="form-group position-relative header-srh-group mb-0 d-none d-sm-block">
+                                    <span class="input-group-addon">
+                                        <span class="iconify" data-icon="fe:search"></span>
+                                    </span>
+                                    <input class="" id="headerSearch" type="search" placeholder="Search...">
+                                </div>
+                                <button class="icon-btn d-block d-sm-none" id="mobileSrhBtn">
+                                    <span class="iconify fz-26 my-auto fc-gray" data-icon="fe:search"></span>
+                                </button>
+                            </li>
+                            <li class="nav-item mr-4 noti-link active position-relative">
+                                <a class="" href="javascript:void(0)">
+                                    <span class="iconify fz-26 noti" data-icon="ri:notification-2-fill"></span>
+                                </a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="dropdown-toggle d-flex" data-toggle="dropdown" href="#">
+                                    <span class="circle-box">
+                                        <span class="iconify fz-26" data-icon="bxs:user"></span>
+                                    </span>
+                                    <span class="iconify my-auto ml-1" data-icon="akar-icons:chevron-down"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li class="link-hover">
+                                        <a href="#" class="d-flex align-items-center">
+                                            <span class="iconify fz-20" data-icon="akar-icons:edit"></span>
+                                            <span class="ml-3">Edit Profile</span>
+                                        </a>
+                                    </li>
+                                    <li class="link-hover">
+                                        <a href="#" class="d-flex align-items-center">
+                                            <span class="iconify fz-20" data-icon="bx:help-circle"></span>
+                                            <span class="ml-3">Help</span>
+                                        </a>
+                                    </li>
+                                    <li class="link-hover">
+                                        <a href="#" class="d-flex align-items-center">
+                                            <span class="iconify fz-20" data-icon="ci:log-out"></span>
+                                            <span class="ml-3">Log out</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                        
+                        </div>
+                    </nav>
+                </header>
+
+                <!-- main section start -->
+                <section class="main-section">
+                    <div class="">
+                        <ul class="nav nav-tabs tbl-tab-list border-0 position-relative" role="tablist">
+                            <li class="nav-item px-0 py-2">
+                                <a class="nav-link active" data-toggle="tab" href="#duck2" role="tab" aria-controls="duck2" aria-selected="true">
+                                    Active Shipments
+                                </a>
+                            </li>
+                            <li class="nav-item px-0 ml-4 py-2">
+                                <a class="nav-link" data-toggle="tab" href="#chicken2" role="tab" aria-controls="chicken2" aria-selected="false">
+                                    Past Shipments
+                                </a>
+                            </li>
+                            <div class="d-flex filter-box">
+                                <div class="input-group position-relative">
+                                    <span class="input-group-addon">
+                                        <span class="iconify" data-icon="ic:baseline-date-range"></span>
+                                    </span>
+                                    <input class="form-control" id="fromToDate" type="text" placeholder="DD/MM/YYYY - DD/MM/YYYY">
+                                </div>
+                                <div class="dropdown ml-1 ml-sm-4">
+                                    <a class="dropdown-toggle filter-btn" data-toggle="dropdown" href="#" aria-expanded="true">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <circle cx="2.7619" cy="10.1719" r="1.7619" stroke="#D6D6D7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M3.74756 1.5C3.74756 0.947715 3.29984 0.5 2.74756 0.5V2C2.47142 2 2.24756 1.77614 2.24756 1.5H3.74756ZM3.74756 8V1.5H2.24756V8H3.74756ZM2.74756 9C3.29984 9 3.74756 8.55228 3.74756 8H2.24756C2.24756 7.72386 2.47142 7.5 2.74756 7.5V9ZM1.74756 8C1.74756 8.55228 2.19527 9 2.74756 9V7.5C3.0237 7.5 3.24756 7.72386 3.24756 8H1.74756ZM1.74756 1.5V8H3.24756V1.5H1.74756ZM2.74756 0.5C2.19527 0.5 1.74756 0.947715 1.74756 1.5H3.24756C3.24756 1.77614 3.0237 2 2.74756 2V0.5ZM3.74756 12.2647C3.74756 11.7124 3.29984 11.2647 2.74756 11.2647V12.7647C2.47142 12.7647 2.24756 12.5408 2.24756 12.2647H3.74756ZM3.74756 14.5V12.2647H2.24756V14.5H3.74756ZM2.74756 15.5C3.29984 15.5 3.74756 15.0523 3.74756 14.5H2.24756C2.24756 14.2239 2.47142 14 2.74756 14V15.5ZM1.74756 14.5C1.74756 15.0523 2.19527 15.5 2.74756 15.5V14C3.0237 14 3.24756 14.2239 3.24756 14.5H1.74756ZM1.74756 12.2647V14.5H3.24756V12.2647H1.74756ZM2.74756 11.2647C2.19527 11.2647 1.74756 11.7124 1.74756 12.2647H3.24756C3.24756 12.5408 3.0237 12.7647 2.74756 12.7647V11.2647Z" fill="#D6D6D7"/>
+                                            <circle cx="7.99994" cy="5.8519" r="1.7619" stroke="#D6D6D7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M8.98584 1.5C8.98584 0.947715 8.53812 0.5 7.98584 0.5V2C7.7097 2 7.48584 1.77614 7.48584 1.5H8.98584ZM8.98584 3.83079V1.5H7.48584V3.83079H8.98584ZM7.98584 4.83079C8.53812 4.83079 8.98584 4.38308 8.98584 3.83079H7.48584C7.48584 3.55465 7.7097 3.33079 7.98584 3.33079V4.83079ZM6.98584 3.83079C6.98584 4.38308 7.43356 4.83079 7.98584 4.83079V3.33079C8.26198 3.33079 8.48584 3.55465 8.48584 3.83079H6.98584ZM6.98584 1.5V3.83079H8.48584V1.5H6.98584ZM7.98584 0.5C7.43356 0.5 6.98584 0.947715 6.98584 1.5H8.48584C8.48584 1.77614 8.26198 2 7.98584 2V0.5ZM8.98584 8C8.98584 7.44772 8.53812 7 7.98584 7V8.5C7.7097 8.5 7.48584 8.27614 7.48584 8H8.98584ZM8.98584 14.5V8H7.48584V14.5H8.98584ZM7.98584 15.5C8.53812 15.5 8.98584 15.0523 8.98584 14.5H7.48584C7.48584 14.2239 7.7097 14 7.98584 14V15.5ZM6.98584 14.5C6.98584 15.0523 7.43355 15.5 7.98584 15.5V14C8.26198 14 8.48584 14.2239 8.48584 14.5H6.98584ZM6.98584 8V14.5H8.48584V8H6.98584ZM7.98584 7C7.43356 7 6.98584 7.44772 6.98584 8H8.48584C8.48584 8.27614 8.26198 8.5 7.98584 8.5V7Z" fill="#D6D6D7"/>
+                                            <circle cx="13.238" cy="10.1719" r="1.7619" stroke="#D6D6D7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M14.2239 1.5C14.2239 0.947715 13.7762 0.5 13.2239 0.5V2C12.9477 2 12.7239 1.77614 12.7239 1.5H14.2239ZM14.2239 8V1.5H12.7239V8H14.2239ZM13.2239 9C13.7762 9 14.2239 8.55228 14.2239 8H12.7239C12.7239 7.72386 12.9477 7.5 13.2239 7.5V9ZM12.2239 8C12.2239 8.55228 12.6716 9 13.2239 9V7.5C13.5 7.5 13.7239 7.72386 13.7239 8H12.2239ZM12.2239 1.5V8H13.7239V1.5H12.2239ZM13.2239 0.5C12.6716 0.5 12.2239 0.947715 12.2239 1.5H13.7239C13.7239 1.77614 13.5 2 13.2239 2V0.5ZM14.2239 12.2647C14.2239 11.7124 13.7762 11.2647 13.2239 11.2647V12.7647C12.9477 12.7647 12.7239 12.5408 12.7239 12.2647H14.2239ZM14.2239 14.5V12.2647H12.7239V14.5H14.2239ZM13.2239 15.5C13.7762 15.5 14.2239 15.0523 14.2239 14.5H12.7239C12.7239 14.2239 12.9477 14 13.2239 14V15.5ZM12.2239 14.5C12.2239 15.0523 12.6716 15.5 13.2239 15.5V14C13.5 14 13.7239 14.2239 13.7239 14.5H12.2239ZM12.2239 12.2647V14.5H13.7239V12.2647H12.2239ZM13.2239 11.2647C12.6716 11.2647 12.2239 11.7124 12.2239 12.2647H13.7239C13.7239 12.5408 13.5 12.7647 13.2239 12.7647V11.2647Z" fill="#D6D6D7"/>
+                                            </svg>
+                                            
+                                    </a>
+                                    <div class="dropdown-menu  p-3 filter-form-box">
+                                        <form action="" class="w-100">
+                                            <div class="filter-header d-flex align-items-center">
+                                                <h4 class="fz-16 fw-600 mb-0">Filters</h4>
+                                                <div class="filter-box-btns ml-auto">
+                                                    <button class="clear link-hover mr-2">Clear</button>
+                                                    <button class="save link-hover">Save</button>
+                                                </div>
+                                            </div>
+                                            <hr class="w-100">
+                                            <div>
+                                                <div class="form-group d-flex align-items-center mb-2">
+                                                    <label class="mb-0" for="orderId">Order Id</label>
+                                                    <input type="text" class="ml-auto" name="orderId" id="orderId" placeholder="Select contact">
+                                                </div>
+                                                <div class="form-group d-flex align-items-center mb-2">
+                                                    <label class="mb-0" for="customerName">Customer Name</label>
+                                                    <input type="text" class="ml-auto" name="customerName" id="customerName" placeholder="Select project">
+                                                </div>
+                                                <div class="form-group d-flex align-items-center mb-2">
+                                                    <label class="mb-0" for="customerId">Customer ID</label>
+                                                    <input type="text" class="ml-auto" name="customerId" id="customerId" placeholder="Select status">
+                                                </div>
+                                                <div class="form-group d-flex align-items-center">
+                                                    <label class="mb-0" for="status">Status</label>
+                                                    <select class="ml-auto mr-0" name="status" id="status">
+                                                        <option value="Select Item" active>Select Item</option>
+                                                        <option value="aaa">aaa</option>
+                                                        <option value="bbb">bbb</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </ul>
+                        
+                        <div class="tab-content mt-3">
+                            <div class="tab-pane active" id="duck2" role="tabpanel" aria-labelledby="duck-tab">
+                                <table id="orderTable" class="table table-hover responsive nowrap" style="width:100%">
+                                    <thead>
+                                        <tr>
+                                            <th>ORDER ID</th>
+                                            <th>CUSTOMER NAME</th>
+                                            <th>CUSTOMER ID</th>
+                                            <th>ORDER TYPE</th>
+                                            <th>ORDER PLACED ON</th>
+                                            <th>DELIVERY STATUS</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>#14526879</td>
+                                            <td>Evan Williams</td>
+                                            <td>BK1456587</td>
+                                            <td>Supplements</td>
+                                            <td>23 Jul 2022</td>
+                                            <td>
+                                                <button class="deliver-status-btn" type="button">
+                                                    Dispatched from wearhouse
+                                                </button>
+                                            </td>
+                                            <td>
+                                                <div class="dropdown">
+                                                    <button class="btn btn-sm btn-icon" type="button" id="action" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        <span class="iconify" data-icon="bi:three-dots-vertical" data-toggle="tooltip" data-placement="top"
+                                                        title="Actions"></span>
+                                                        </button>
+                                                    <div class="dropdown-menu action-menu" aria-labelledby="action">
+                                                        <a class="dropdown-item py-10 px-3 link-hover d-flex align-items-center" href="#">
+                                                            <span class="iconify fz-20" data-icon="ic:outline-change-circle"></span>
+                                                            <span class="ml-3">Change status</span> 
+                                                        </a>
+                                                        <a class="dropdown-item py-10 px-3 link-hover d-flex align-items-center" href="#">
+                                                            <span class="iconify fz-20" data-icon="foundation:page-edit"></span>
+                                                            <span class="ml-3">Generate shipment label</span> 
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>#14526879</td>
+                                            <td>Evan Williams</td>
+                                            <td>BK1456587</td>
+                                            <td>Supplements</td>
+                                            <td>23 Jul 2022</td>
+                                            <td>
+                                                <button class="deliver-status-btn" type="button">
+                                                    Dispatched from wearhouse
+                                                </button>
+                                            </td>
+                                            <td>
+                                                <div class="dropdown">
+                                                    <button class="btn btn-sm btn-icon" type="button" id="action" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        <span class="iconify" data-icon="bi:three-dots-vertical" data-toggle="tooltip" data-placement="top"
+                                                        title="Actions"></span>
+                                                        </button>
+                                                    <div class="dropdown-menu action-menu" aria-labelledby="action">
+                                                        <a class="dropdown-item py-10 px-3 link-hover d-flex align-items-center" href="#">
+                                                            <span class="iconify fz-20" data-icon="ic:outline-change-circle"></span>
+                                                            <span class="ml-3">Change status</span> 
+                                                        </a>
+                                                        <a class="dropdown-item py-10 px-3 link-hover d-flex align-items-center" href="#">
+                                                            <span class="iconify fz-20" data-icon="foundation:page-edit"></span>
+                                                            <span class="ml-3">Generate shipment label</span> 
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>#14526879</td>
+                                            <td>Evan Williams</td>
+                                            <td>BK1456587</td>
+                                            <td>Supplements</td>
+                                            <td>23 Jul 2022</td>
+                                            <td>
+                                                <button class="deliver-status-btn" type="button">
+                                                    Dispatched from wearhouse
+                                                </button>
+                                            </td>
+                                            <td>
+                                                <div class="dropdown">
+                                                    <button class="btn btn-sm btn-icon" type="button" id="action" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        <span class="iconify" data-icon="bi:three-dots-vertical" data-toggle="tooltip" data-placement="top"
+                                                        title="Actions"></span>
+                                                        </button>
+                                                    <div class="dropdown-menu action-menu" aria-labelledby="action">
+                                                        <a class="dropdown-item py-10 px-3 link-hover d-flex align-items-center" href="#">
+                                                            <span class="iconify fz-20" data-icon="ic:outline-change-circle"></span>
+                                                            <span class="ml-3">Change status</span> 
+                                                        </a>
+                                                        <a class="dropdown-item py-10 px-3 link-hover d-flex align-items-center" href="#">
+                                                            <span class="iconify fz-20" data-icon="foundation:page-edit"></span>
+                                                            <span class="ml-3">Generate shipment label</span> 
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>#14526879</td>
+                                            <td>Evan Williams</td>
+                                            <td>BK1456587</td>
+                                            <td>Supplements</td>
+                                            <td>23 Jul 2022</td>
+                                            <td>
+                                                <button class="deliver-status-btn" type="button">
+                                                    Dispatched from wearhouse
+                                                </button>
+                                            </td>
+                                            <td>
+                                                <div class="dropdown">
+                                                    <button class="btn btn-sm btn-icon" type="button" id="action" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        <span class="iconify" data-icon="bi:three-dots-vertical" data-toggle="tooltip" data-placement="top"
+                                                        title="Actions"></span>
+                                                        </button>
+                                                    <div class="dropdown-menu action-menu" aria-labelledby="action">
+                                                        <a class="dropdown-item py-10 px-3 link-hover d-flex align-items-center" href="#">
+                                                            <span class="iconify fz-20" data-icon="ic:outline-change-circle"></span>
+                                                            <span class="ml-3">Change status</span> 
+                                                        </a>
+                                                        <a class="dropdown-item py-10 px-3 link-hover d-flex align-items-center" href="#">
+                                                            <span class="iconify fz-20" data-icon="foundation:page-edit"></span>
+                                                            <span class="ml-3">Generate shipment label</span> 
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>#14526879</td>
+                                            <td>Evan Williams</td>
+                                            <td>BK1456587</td>
+                                            <td>Supplements</td>
+                                            <td>23 Jul 2022</td>
+                                            <td>
+                                                <button class="deliver-status-btn" type="button">
+                                                    Dispatched from wearhouse
+                                                </button>
+                                            </td>
+                                            <td>
+                                                <div class="dropdown">
+                                                    <button class="btn btn-sm btn-icon" type="button" id="action" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        <span class="iconify" data-icon="bi:three-dots-vertical" data-toggle="tooltip" data-placement="top"
+                                                        title="Actions"></span>
+                                                        </button>
+                                                    <div class="dropdown-menu action-menu" aria-labelledby="action">
+                                                        <a class="dropdown-item py-10 px-3 link-hover d-flex align-items-center" href="#">
+                                                            <span class="iconify fz-20" data-icon="ic:outline-change-circle"></span>
+                                                            <span class="ml-3">Change status</span> 
+                                                        </a>
+                                                        <a class="dropdown-item py-10 px-3 link-hover d-flex align-items-center" href="#">
+                                                            <span class="iconify fz-20" data-icon="foundation:page-edit"></span>
+                                                            <span class="ml-3">Generate shipment label</span> 
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>#14526879</td>
+                                            <td>Evan Williams</td>
+                                            <td>BK1456587</td>
+                                            <td>Supplements</td>
+                                            <td>23 Jul 2022</td>
+                                            <td>
+                                                <button class="deliver-status-btn" type="button">
+                                                    Dispatched from wearhouse
+                                                </button>
+                                            </td>
+                                            <td>
+                                                <div class="dropdown">
+                                                    <button class="btn btn-sm btn-icon" type="button" id="action" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        <span class="iconify" data-icon="bi:three-dots-vertical" data-toggle="tooltip" data-placement="top"
+                                                        title="Actions"></span>
+                                                        </button>
+                                                    <div class="dropdown-menu action-menu" aria-labelledby="action">
+                                                        <a class="dropdown-item py-10 px-3 link-hover d-flex align-items-center" href="#">
+                                                            <span class="iconify fz-20" data-icon="ic:outline-change-circle"></span>
+                                                            <span class="ml-3">Change status</span> 
+                                                        </a>
+                                                        <a class="dropdown-item py-10 px-3 link-hover d-flex align-items-center" href="#">
+                                                            <span class="iconify fz-20" data-icon="foundation:page-edit"></span>
+                                                            <span class="ml-3">Generate shipment label</span> 
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>#14526879</td>
+                                            <td>Evan Williams</td>
+                                            <td>BK1456587</td>
+                                            <td>Supplements</td>
+                                            <td>23 Jul 2022</td>
+                                            <td>
+                                                <button class="deliver-status-btn" type="button">
+                                                    Dispatched from wearhouse
+                                                </button>
+                                            </td>
+                                            <td>
+                                                <div class="dropdown">
+                                                    <button class="btn btn-sm btn-icon" type="button" id="action" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        <span class="iconify" data-icon="bi:three-dots-vertical" data-toggle="tooltip" data-placement="top"
+                                                        title="Actions"></span>
+                                                        </button>
+                                                    <div class="dropdown-menu action-menu" aria-labelledby="action">
+                                                        <a class="dropdown-item py-10 px-3 link-hover d-flex align-items-center" href="#">
+                                                            <span class="iconify fz-20" data-icon="ic:outline-change-circle"></span>
+                                                            <span class="ml-3">Change status</span> 
+                                                        </a>
+                                                        <a class="dropdown-item py-10 px-3 link-hover d-flex align-items-center" href="#">
+                                                            <span class="iconify fz-20" data-icon="foundation:page-edit"></span>
+                                                            <span class="ml-3">Generate shipment label</span> 
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>#14526879</td>
+                                            <td>Evan Williams</td>
+                                            <td>BK1456587</td>
+                                            <td>Supplements</td>
+                                            <td>23 Jul 2022</td>
+                                            <td>
+                                                <button class="deliver-status-btn" type="button">
+                                                    Dispatched from wearhouse
+                                                </button>
+                                            </td>
+                                            <td>
+                                                <div class="dropdown">
+                                                    <button class="btn btn-sm btn-icon" type="button" id="action" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        <span class="iconify" data-icon="bi:three-dots-vertical" data-toggle="tooltip" data-placement="top"
+                                                        title="Actions"></span>
+                                                        </button>
+                                                    <div class="dropdown-menu action-menu" aria-labelledby="action">
+                                                        <a class="dropdown-item py-10 px-3 link-hover d-flex align-items-center" href="#">
+                                                            <span class="iconify fz-20" data-icon="ic:outline-change-circle"></span>
+                                                            <span class="ml-3">Change status</span> 
+                                                        </a>
+                                                        <a class="dropdown-item py-10 px-3 link-hover d-flex align-items-center" href="#">
+                                                            <span class="iconify fz-20" data-icon="foundation:page-edit"></span>
+                                                            <span class="ml-3">Generate shipment label</span> 
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>#14526879</td>
+                                            <td>Evan Williams</td>
+                                            <td>BK1456587</td>
+                                            <td>Supplements</td>
+                                            <td>23 Jul 2022</td>
+                                            <td>
+                                                <button class="deliver-status-btn" type="button">
+                                                    Dispatched from wearhouse
+                                                </button>
+                                            </td>
+                                            <td>
+                                                <div class="dropdown">
+                                                    <button class="btn btn-sm btn-icon" type="button" id="action" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        <span class="iconify" data-icon="bi:three-dots-vertical" data-toggle="tooltip" data-placement="top"
+                                                        title="Actions"></span>
+                                                        </button>
+                                                    <div class="dropdown-menu action-menu" aria-labelledby="action">
+                                                        <a class="dropdown-item py-10 px-3 link-hover d-flex align-items-center" href="#">
+                                                            <span class="iconify fz-20" data-icon="ic:outline-change-circle"></span>
+                                                            <span class="ml-3">Change status</span> 
+                                                        </a>
+                                                        <a class="dropdown-item py-10 px-3 link-hover d-flex align-items-center" href="#">
+                                                            <span class="iconify fz-20" data-icon="foundation:page-edit"></span>
+                                                            <span class="ml-3">Generate shipment label</span> 
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>#14526879</td>
+                                            <td>Evan Williams</td>
+                                            <td>BK1456587</td>
+                                            <td>Supplements</td>
+                                            <td>23 Jul 2022</td>
+                                            <td>
+                                                <button class="deliver-status-btn" type="button">
+                                                    Dispatched from wearhouse
+                                                </button>
+                                            </td>
+                                            <td>
+                                                <div class="dropdown">
+                                                    <button class="btn btn-sm btn-icon" type="button" id="action" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        <span class="iconify" data-icon="bi:three-dots-vertical" data-toggle="tooltip" data-placement="top"
+                                                        title="Actions"></span>
+                                                        </button>
+                                                    <div class="dropdown-menu action-menu" aria-labelledby="action">
+                                                        <a class="dropdown-item py-10 px-3 link-hover d-flex align-items-center" href="#">
+                                                            <span class="iconify fz-20" data-icon="ic:outline-change-circle"></span>
+                                                            <span class="ml-3">Change status</span> 
+                                                        </a>
+                                                        <a class="dropdown-item py-10 px-3 link-hover d-flex align-items-center" href="#">
+                                                            <span class="iconify fz-20" data-icon="foundation:page-edit"></span>
+                                                            <span class="ml-3">Generate shipment label</span> 
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>#14526879</td>
+                                            <td>Evan Williams</td>
+                                            <td>BK1456587</td>
+                                            <td>Supplements</td>
+                                            <td>23 Jul 2022</td>
+                                            <td>
+                                                <button class="deliver-status-btn" type="button">
+                                                    Dispatched from wearhouse
+                                                </button>
+                                            </td>
+                                            <td>
+                                                <div class="dropdown">
+                                                    <button class="btn btn-sm btn-icon" type="button" id="action" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        <span class="iconify" data-icon="bi:three-dots-vertical" data-toggle="tooltip" data-placement="top"
+                                                        title="Actions"></span>
+                                                        </button>
+                                                    <div class="dropdown-menu action-menu" aria-labelledby="action">
+                                                        <a class="dropdown-item py-10 px-3 link-hover d-flex align-items-center" href="#">
+                                                            <span class="iconify fz-20" data-icon="ic:outline-change-circle"></span>
+                                                            <span class="ml-3">Change status</span> 
+                                                        </a>
+                                                        <a class="dropdown-item py-10 px-3 link-hover d-flex align-items-center" href="#">
+                                                            <span class="iconify fz-20" data-icon="foundation:page-edit"></span>
+                                                            <span class="ml-3">Generate shipment label</span> 
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>#14526879</td>
+                                            <td>Evan Williams</td>
+                                            <td>BK1456587</td>
+                                            <td>Supplements</td>
+                                            <td>23 Jul 2022</td>
+                                            <td>
+                                                <button class="deliver-status-btn" type="button">
+                                                    Dispatched from wearhouse
+                                                </button>
+                                            </td>
+                                            <td>
+                                                <div class="dropdown">
+                                                    <button class="btn btn-sm btn-icon" type="button" id="action" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        <span class="iconify" data-icon="bi:three-dots-vertical" data-toggle="tooltip" data-placement="top"
+                                                        title="Actions"></span>
+                                                        </button>
+                                                    <div class="dropdown-menu action-menu" aria-labelledby="action">
+                                                        <a class="dropdown-item py-10 px-3 link-hover d-flex align-items-center" href="#">
+                                                            <span class="iconify fz-20" data-icon="ic:outline-change-circle"></span>
+                                                            <span class="ml-3">Change status</span> 
+                                                        </a>
+                                                        <a class="dropdown-item py-10 px-3 link-hover d-flex align-items-center" href="#">
+                                                            <span class="iconify fz-20" data-icon="foundation:page-edit"></span>
+                                                            <span class="ml-3">Generate shipment label</span> 
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="tab-pane" id="chicken2" role="tabpanel" aria-labelledby="chicken-tab">
+                                aaa
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+            </section>
+        </section>
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.19/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
+        <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+        <script src="assets/js/script.js"></script>
+    </body>
+</html>

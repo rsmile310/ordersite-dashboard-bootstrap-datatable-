@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <title>Dashboard</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@2.0.0/css/boxicons.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    
+    </head>
+    <body>
+
+        <section class="defautl-container">
+            <div class="mask"></div>
+            <aside id="aside">
+                <div class="mt-30 mx-auto">
+                    <div class="ml-20">
+                        <img src="assets/images/logo.svg" width="120px" height="auto" alt="logo">
+                    </div>
+                    <div class="mt-30">
+                        <ul class="tab-list">
+                            <li class="active">
+                                <a href="index.html" class="tab-link">
+                                    <img src="assets/images/dash.svg" width="16px" height="16px" alt="">
+                                    <span class="pl-2">Dashboard</span>
+                                </a>
+                            </li>
+                            <li class="">
+                                <a href="contacts" class="tab-link">
+                                    <img src="assets/images/user.svg" width="16px" height="16px" alt="">
+                                    <span class="pl-2">Contacts</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </aside>
+            <section class="main-container px-3 py-4 px-lg-5">
+                <header class="mb-4 mb-md-0">
+                    <nav class="navbar navbar-expand mt-0 px-0">
+                        <div class="mr-2">
+                            <button id="asideTogBtn" type="button">
+                                <span class="iconify" data-icon="cil:hamburger-menu"></span>
+                            </button>
+                        </div>
+                        <div class="d-flex align-items-center" href="javascript:void(0)">
+                            <a href="index.html" class="mr-2">
+                                <span class="iconify" data-icon="ant-design:left-outlined"></span>
+                            </a>
+                            <span class="text-body fz-16 text-med">Order detail</span>
+                        </div>
+                    
+                        <div class="navbar-collapse d-flex" id="navb">
+                        <ul class="navbar-nav ml-auto d-flex align-items-center">
+                            <li class="nav-item mr-4 d-flex">
+                                <div class="form-group position-relative header-srh-group mb-0 d-none d-sm-block">
+                                    <span class="input-group-addon">
+                                        <span class="iconify" data-icon="fe:search"></span>
+                                    </span>
+                                    <input class="" id="headerSearch" type="search" placeholder="Search...">
+                                </div>
+                                <button class="icon-btn d-block d-sm-none" id="mobileSrhBtn">
+                                    <span class="iconify fz-26 my-auto fc-gray" data-icon="fe:search"></span>
+                                </button>
+                            </li>
+                            <li class="nav-item mr-4 noti-link active position-relative">
+                                <a class="" href="javascript:void(0)">
+                                    <span class="iconify fz-26 noti" data-icon="ri:notification-2-fill"></span>
+                                </a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="dropdown-toggle d-flex" data-toggle="dropdown" href="#">
+                                    <span class="circle-box">
+                                        <span class="iconify fz-26" data-icon="bxs:user"></span>
+                                    </span>
+                                    <span class="iconify my-auto ml-1" data-icon="akar-icons:chevron-down"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li class="link-hover">
+                                        <a href="#" class="d-flex align-items-center">
+                                            <span class="iconify fz-20" data-icon="akar-icons:edit"></span>
+                                            <span class="ml-3">Edit Profile</span>
+                                        </a>
+                                    </li>
+                                    <li class="link-hover">
+                                        <a href="#" class="d-flex align-items-center">
+                                            <span class="iconify fz-20" data-icon="bx:help-circle"></span>
+                                            <span class="ml-3">Help</span>
+                                        </a>
+                                    </li>
+                                    <li class="link-hover">
+                                        <a href="#" class="d-flex align-items-center">
+                                            <span class="iconify fz-20" data-icon="ci:log-out"></span>
+                                            <span class="ml-3">Log out</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                        
+                        </div>
+                    </nav>
+                </header>
+                <!-- main section start -->
+                <section class="main-section mt-4">
+                    <div class="row">
+                        <div class="col-lg-4 border-right mb-4">
+                            <div class="d-flex">
+                                <div class="d-flex flex-column w-24 mr-4">
+                                    <div class="order-state-box active">
+                                        <span class="iconify text-white fz-20" data-icon="bi:check"></span>
+                                    </div>
+                                    <div class="v-line mx-auto mt-2"></div>
+                                </div>
+                                <div>
+                                    <h4 class="text-t1">
+                                        Order Placed
+                                    </h4>
+                                    <p class="text-b1">
+                                        #BD 142465488 &nbsp;•&nbsp; Saturday, 23 Jul 2022
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="d-flex mt-2">
+                                <div class="d-flex flex-column w-24 mr-4">
+                                    <div class="order-state-box active">
+                                        <span class="iconify text-white fz-20" data-icon="bi:check"></span>
+                                    </div>
+                                    <div class="v-line mx-auto mt-2"></div>
+                                </div>
+                                <div>
+                                    <h4 class="text-t1">
+                                        Dispatched from Wearhouse
+                                    </h4>
+                                    <p class="text-b1">
+                                        Sunday, 24 Jul 2022
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="d-flex mt-2">
+                                <div class="d-flex flex-column w-24 mr-4">
+                                    <div class="order-state-box active">
+                                        <span class="iconify text-white fz-20" data-icon="bi:check"></span>
+                                    </div>
+                                    <div class="v-line mx-auto mt-2"></div>
+                                </div>
+                                <div>
+                                    <h4 class="text-t1">
+                                        Out for Customer Delivery
+                                    </h4>
+                                    <p class="text-b1">
+                                        Sunday, 24 Jul 2022
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="d-flex mt-2">
+                                <div class="d-flex flex-column w-24 mr-4">
+                                    <div class="order-state-box active">
+                                        <span class="iconify text-white fz-20" data-icon="bi:check"></span>
+                                    </div>
+                                    <div class="v-line mx-auto mt-2"></div>
+                                </div>
+                                <div>
+                                    <h4 class="text-t1">
+                                        Delivered to Customer
+                                    </h4>
+                                    <p class="text-b1">
+                                        Monday, 25 Jul 2022
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="d-flex mt-2">
+                                <div class="d-flex flex-column w-24 mr-4">
+                                    <div class="order-state-box active">
+                                        <span class="iconify text-white fz-20" data-icon="bi:check"></span>
+                                    </div>
+                                    <div class="v-line mx-auto mt-2"></div>
+                                </div>
+                                <div>
+                                    <h4 class="text-t1">
+                                        Sample Collected
+                                    </h4>
+                                    <p class="text-b1">
+                                        Tuesday 26 Jul 2022
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="d-flex mt-2">
+                                <div class="d-flex flex-column w-24 mr-4">
+                                    <div class="order-state-box active">
+                                        <span class="iconify text-white fz-20" data-icon="bi:check"></span>
+                                    </div>
+                                    <div class="v-line mx-auto mt-2"></div>
+                                </div>
+                                <div>
+                                    <h4 class="text-t1">
+                                        Out for Delivery (to xNARA admin)
+                                    </h4>
+                                    <p class="text-b1">
+                                        #AD 246465066 &nbsp;•&nbsp; Tuesday 26 Jul 2022
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="d-flex mt-2">
+                                <div class="d-flex flex-column w-24 mr-4">
+                                    <div class="order-state-box">
+                                        
+                                    </div>
+                                    <div class="v-line mx-auto mt-2"></div>
+                                </div>
+                                <div>
+                                    <h4 class="text-t1 fc-gray">
+                                        Sample Dispatched to Lab
+                                    </h4>
+                                </div>
+                            </div>
+                            <div class="d-flex mt-2">
+                                <div class="d-flex flex-column w-24 mr-4">
+                                    <div class="order-state-box">
+                                        
+                                    </div>
+                                    <div class="v-line mx-auto mt-2"></div>
+                                </div>
+                                <div>
+                                    <h4 class="text-t1 fc-gray">
+                                        Analysis in Progress
+                                    </h4>
+                                </div>
+                            </div>
+
+                            <div class="d-flex mt-2">
+                                <div class="d-flex flex-column w-24 mr-4">
+                                    <div class="order-state-box">
+                                        
+                                    </div>
+                                    <div class="v-line mx-auto mt-2"></div>
+                                </div>
+                                <div>
+                                    <h4 class="text-t1 fc-gray">
+                                        Report Sent for Approval
+                                    </h4>
+                                </div>
+                            </div>
+
+                            <div class="d-flex mt-2">
+                                <div class="d-flex flex-column w-24 mr-4">
+                                    <div class="order-state-box">
+                                        
+                                    </div>
+                                </div>
+                                <div>
+                                    <h4 class="text-t1 fc-gray">
+                                        Report Sent to Customer
+                                    </h4>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-lg-8 pl-3 pl-lg-4">
+                            <div class="d-flex flex-column flex-sm-row ml-0 ml-lg-5">
+                                <div class="mr-2 mr-sm-5 mb-4">
+                                    <img class="img-fluid br-16" width="216px" height="auto" src="assets/images/order.png" alt="">
+                                </div>  
+                                <div>
+                                    <h4 class="text-t1">Evan Williams</h4>
+                                    <p class="text-b1">#BK1456587</p>
+                                    <p class="w-180 d-flex align-items-center">
+                                        <span class="text-b1">Order ID :</span>
+                                        <span class="ml-auto text-body">#14526879</span>
+                                    </p>
+                                    <p class="w-180 d-flex align-items-center">
+                                        <span class="text-b1">Test Kit ID1 :</span>
+                                        <span class="ml-auto text-body">#DT1456587</span>
+                                    </p>
+                                    <p class="w-180 d-flex align-items-center">
+                                        <span class="text-b1">Test Kit ID2 :</span>
+                                        <span class="ml-auto text-body">#BK1456587</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </section>
+        
+        </section>
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.19/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
+        <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+        <script src="assets/js/script.js"></script>
+    </body>
+</html>
